@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Vraag", question)
         .addField("Antwoord", replies[result])
         .setFooter("Copyright NBRadio", "https://cloud.gmpnetwork.nl/index.php/apps/files_sharing/publicpreview/S5GjTjc8JNDoXij?x=1018&y=797&a=true&file=dec2019logo2favicon.png&scalingup=0")
-        .setTimestamp();
+        .Date().getFullYear();
 
     message.channel.send(ballembed);
     
