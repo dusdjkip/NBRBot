@@ -45,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(!announceChannel) return message.reply("Dit kanaal bestaat niet..")
 
-    channel.send(updateEmbed);
+    message.channel.send(updateEmbed);
 
 }
 
