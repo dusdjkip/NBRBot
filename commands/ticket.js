@@ -6,7 +6,7 @@ module.exports.run = async(bot, message, args) => {
     const categoryID = "717094952512782406";
 
     var userName = message.author.username;
-    var userDiscriminator = message.author.Discriminator;
+    var userDiscriminator = message.author.discriminator;
 
     var ticketBestaat = false;
 
@@ -40,14 +40,14 @@ module.exports.run = async(bot, message, args) => {
                         VIEW_CHANNEL: false
                     });
 
-                    settedParent.updateOverwrite(message.author.id), {
+                    settedParent.updateOverwrite(message.author.id, {
                         CREATE_INSTANT_INVITE: false,
                         READ_MESSAGES: true,
                         SEND_MESSAGES: true,
                         ATTACH_FILES: true,
                         CONNECT: true,
                         ADD_REACTIONS: true
-                    };
+                    });
 
                     var embedParent = new discord.MessageEmbed()
                         .setTitle(`Hey ${message.author.username}!`)
@@ -59,11 +59,11 @@ module.exports.run = async(bot, message, args) => {
 
                 }
             ).catch(err => {
-                message.channel.send("Er is iets fout gegeaan :(");
+                message.channel.send("Er is iets fout gegaan :(");
             });
         }
     ).catch(err => {
-        message.channel.send("Er is iets fout gegeaan :(");
+        message.channel.send("Er is iets fout gegaan :(");
     });
 
 
