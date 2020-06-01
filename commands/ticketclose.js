@@ -6,7 +6,7 @@ module.exports.run = async(bot, message, args) => {
 
     if(!message.member.hasPermission("KICK_MEMBER")) return message.reply("Jij kan dit niet doen!")
 
-    if(message.channel.parentID == categoryID){
+    if(message.channel.parentID == categoryID) {
         message.channel.delete();
     } else {
 
@@ -17,7 +17,7 @@ module.exports.run = async(bot, message, args) => {
     // Embed Create
     var embedCreateTicket = new discord.MessageEmbed()
         .setTitle("Ticket, " + message.channel.name)
-        .setDescription("De ticket is gemarkeerd als **Compleet**.")
+        .setDescription("Deze ticket is afgerond door " + member.user.username)
         .setFooter("© NBRadio 2020", "https://cloud.gmpnetwork.nl/index.php/apps/files_sharing/publicpreview/S5GjTjc8JNDoXij?x=1018&y=797&a=true&file=dec2019logo2favicon.png&scalingup=0")
         .setTimestamp();
 
