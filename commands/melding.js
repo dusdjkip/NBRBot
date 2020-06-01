@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor(options.kleur)
         .setDescription(`Bericht van ${message.author} \n\n ${options.titel} \n ${options.bericht}`)
         .setFooter("© NBRadio 2020", "https://cloud.gmpnetwork.nl/index.php/apps/files_sharing/publicpreview/S5GjTjc8JNDoXij?x=1018&y=797&a=true&file=dec2019logo2favicon.png&scalingup=0")
-        .setTimestamp();t
+        .setTimestamp();
 
     var channel = message.member.guild.channels.cache.find(channels => channels.name === options.kanaal);
     if(!channel) return message.reply("Dit kanaal bestaat niet..")

@@ -30,15 +30,15 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("guildMemberAdd", member => {
 
-  var role = member.guild.roles.cache.get('707867905504837693');
+  var role = member.guild.roles.cache.get('716888310605152276');
 
   if (!role) return;
 
   member.roles.add(role);
 
-  var channel = member.guild.channels.cache.get('708325669729206322')
+  var channel = member.guild.channels.cache.get('716888342490251294')
 
-  if (!channel) return console.log("Kanaal: 708325669729206322 niet gevonden.");
+  if (!channel) return console.log("Kanaal: 716888342490251294 niet gevonden.");
 
   var embed = new discord.MessageEmbed()
     .setTitle("Welkom bij NoBordersRadio")
