@@ -73,7 +73,7 @@ bot.on('ready', async () => {
     }
   }, 4 * 800);
 
-  const channel = bot.channels.cache.get('710073480447787010');
+  const channel = bot.channels.cache.get('717024364222218271');
     channel.join().then(connection => {
       const dispatcher = connection.play('https://talentsradio.nl/radio/8000/NBR.mp3');
     });
