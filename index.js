@@ -76,7 +76,8 @@ bot.on('ready', async () => {
   const channel = bot.channels.cache.get('717024364222218271');
     channel.join().then(connection => {
       const dispatcher = connection.play('https://talentsradio.nl/radio/8000/NBR.mp3');
-    });
+      
+    }).catch(console.error);
 
 });
 
