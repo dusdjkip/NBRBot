@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
 
     var ticketBestaat = false;
 
-    message.guild.channels.cache.array.forEach(channel => {
+    message.guild.channels.cache.forEach(channel => {
 
         if(channel.name == userName.toLowerCase() + "-" + userDiscriminator){
             ticketBestaat = true;
@@ -55,7 +55,7 @@ module.exports.run = async(bot, message, args) => {
                         .setFooter("© NBRadio 2020", "https://cloud.gmpnetwork.nl/index.php/apps/files_sharing/publicpreview/S5GjTjc8JNDoXij?x=1018&y=797&a=true&file=dec2019logo2favicon.png&scalingup=0")
                         .setTimestamp();
 
-                    settedParent.channel.send(embedParent);
+                    settedParent.send(embedParent);
 
                 }
             ).catch(err => {
