@@ -108,45 +108,45 @@ bot.on("message", async message => {
   var messageArray = message.content.split(" ");
 
 
-  var SwearWords = JSON.parse(fs.readFileSync("./data/scheldwoorden.json"));
+  // var SwearWords = JSON.parse(fs.readFileSync("./data/scheldwoorden.json"));
 
-  var senteceUser = "";
-  var amountSwearWords = 0;
+  // var senteceUser = "";
+  // var amountSwearWords = 0;
 
-  for (let y = 0; y < messageArray.length; y++) {
+  // for (let y = 0; y < messageArray.length; y++) {
 
-    const word = messageArray[y].toLowerCase();
+  //   const word = messageArray[y].toLowerCase();
 
-    var changeWord = "";
+  //   var changeWord = "";
 
-    for (let i = 0; i < SwearWords["vloekwoorden"].length; i++) {
+  //   for (let i = 0; i < SwearWords["vloekwoorden"].length; i++) {
 
-      if (word.includes(SwearWords["vloekwoorden"][i])) {
+  //     if (word.includes(SwearWords["vloekwoorden"][i])) {
 
-        changeWord = word.replace(SwearWords["vloekwoorden"][i], "******");
+  //       changeWord = word.replace(SwearWords["vloekwoorden"][i], "******");
 
-        senteceUser += " " + changeWord;
+  //       senteceUser += " " + changeWord;
 
-        amountSwearWords++;
+  //       amountSwearWords++;
 
-      }
+  //     }
 
-    }
+  //   }
 
-    if(!changeWord){
-      senteceUser += " " + messageArray[y];
-    }
+//     if(!changeWord){
+//       senteceUser += " " + messageArray[y];
+//     }
 
-  }
+//   }
 
-  if(amountSwearWords != 0){
+//   if(amountSwearWords != 0){
     
-    message.delete();
-    message.channel.send(senteceUser);
+//     message.delete();
+//     message.channel.send(senteceUser);
 
-    message.channel.send("Niet vloeken A.U.B!")
-;
-  }
+//     message.channel.send("Niet vloeken A.U.B!")
+// ;
+//   }
 
 
   var command = messageArray[0];
