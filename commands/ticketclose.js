@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
         // Channel voor logging
 
-        var ticketChannel = message.member.guild.channels.cache.find(channel => channel.name === "「🎫」ticket-logs");
+        var ticketChannel = message.member.guild.channels.cache.get(channel => channel.name === "717106837564162149");
         if (!ticketChannel) return message.channel.send("Kanaal bestaat niet.");
 
         ticketChannel.send(embedCreateTicket);
