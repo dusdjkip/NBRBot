@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
     const categoryID = "717094952512782406";
 
-    if (!message.member.hasPermission("KICK_MEMBER")) return message.reply("Jij kan dit niet doen!")
+    if (!message.member.hasPermission("KICK_MEMBER")) return message.reply("Jij kan dit niet doen!");
 
     if (message.channel.parentID == categoryID) {
         message.channel.delete();
