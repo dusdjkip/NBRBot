@@ -8,13 +8,8 @@ module.exports.run = async(bot, message, args) => {
 
     if(message.channel.parentID == categoryID) {
         message.channel.delete();
-    } else {
 
-        message.channel.send("Gelieve dit commando in een ticket kanaal te gebruiken.");
-
-    }
-
-    // Embed Create
+            // Embed Create
     var embedCreateTicket = new discord.MessageEmbed()
         .setTitle("Ticket, " + message.channel.name)
         .setDescription("De ticket is gemarkeerd als **Compleet**.")
@@ -27,6 +22,13 @@ module.exports.run = async(bot, message, args) => {
     if(!ticketChannel) return message.channel.send("Kanaal bestaat niet.");
 
     ticketChannel.send(embedCreateTicket);
+    
+    } else {
+
+        message.channel.send("Gelieve dit commando in een ticket kanaal te gebruiken.");
+
+    }
+
 
 }
 
