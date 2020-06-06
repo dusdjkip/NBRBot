@@ -40,20 +40,36 @@ bot.on("guildMemberAdd", member => {
 
   if (!channel) return console.log("Kanaal: 716888342490251294 niet gevonden.");
 
-  var embed = new discord.MessageEmbed()
+  var joinEmbed = new discord.MessageEmbed()
+    .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
     .setTitle("Welkom bij NoBordersRadio")
-    .setDescription(`Welkom ${member}!
+    .setDescription(`**Hey ${member.user.username},**
 
-    Wij raden je aan om eerst even de regels te lezen! (#「📜」regelement)
+    Wij raden je aan om eerst even de regels te lezen! (#「📜」regleement)
     
     `)
     .setColor("GREEN")
     .setFooter("© NBRadio 2020", "https://cloud.gmpnetwork.nl/index.php/apps/files_sharing/publicpreview/S5GjTjc8JNDoXij?x=1018&y=797&a=true&file=dec2019logo2favicon.png&scalingup=0")
     .setTimestamp();
 
-  channel.send(embed);
+  channel.send(joinEmbed);
 
-  // channel.send(`Welkom ${member} in onze discord van NBRadio!\n Momenteel zijn wij druk om alles optimaal te krijgen\n Heb je vragen, maak een :ticket: aan in ons ticket kanaal\n Wij wensen uw een fijne tijd toe.. \n Team NBRadio.nl`);
+});
+
+bot.on("guildMemberRemove", member => {
+
+  var channel = member.guild.channels.cache.get('716888342490251294')
+
+  if (!channel) return console.log("Kanaal: 716888342490251294 niet gevonden.");
+
+  var leaveEmbed = new discord.MessageEmbed()
+    .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
+    .setTitle("Gebruiker heeft de server verlaten :(")
+    .setColor("RED")
+    .setFooter("© NBRadio 2020", "https://cloud.gmpnetwork.nl/index.php/apps/files_sharing/publicpreview/S5GjTjc8JNDoXij?x=1018&y=797&a=true&file=dec2019logo2favicon.png&scalingup=0")
+    .setTimestamp();
+
+  channel.send(leaveEmbed);
 
 });
 
@@ -65,19 +81,28 @@ bot.on('ready', async () => {
   setInterval(function () {
     activNum++;
     switch (activNum) {
-      case 0: bot.user.setActivity("Powered By:"); break;
-      case 1: bot.user.setActivity("GMPNetwork"); break;
-      case 2: bot.user.setActivity("Project:"); break;
-      case 3: bot.user.setActivity("NBRadio.nl"); break;
-      default: activNum = -1;
+      case 0:
+        bot.user.setActivity("Powered By:");
+        break;
+      case 1:
+        bot.user.setActivity("GMPNetwork");
+        break;
+      case 2:
+        bot.user.setActivity("Project:");
+        break;
+      case 3:
+        bot.user.setActivity("NBRadio.nl");
+        break;
+      default:
+        activNum = -1;
     }
   }, 4 * 800);
 
   const channel = bot.channels.cache.get('717024364222218271');
-    channel.join().then(connection => {
-      const dispatcher = connection.play('https://talentsradio.nl/radio/8000/NBR.mp3');
-      
-    }).catch(console.error);
+  channel.join().then(connection => {
+    const dispatcher = connection.play('https://talentsradio.nl/radio/8000/NBR.mp3');
+
+  }).catch(console.error);
 
 });
 
@@ -133,20 +158,20 @@ bot.on("message", async message => {
 
   //   }
 
-//     if(!changeWord){
-//       senteceUser += " " + messageArray[y];
-//     }
+  //     if(!changeWord){
+  //       senteceUser += " " + messageArray[y];
+  //     }
 
-//   }
+  //   }
 
-//   if(amountSwearWords != 0){
-    
-//     message.delete();
-//     message.channel.send(senteceUser);
+  //   if(amountSwearWords != 0){
 
-//     message.channel.send("Niet vloeken A.U.B!")
-// ;
-//   }
+  //     message.delete();
+  //     message.channel.send(senteceUser);
+
+  //     message.channel.send("Niet vloeken A.U.B!")
+  // ;
+  //   }
 
 
   var command = messageArray[0];
