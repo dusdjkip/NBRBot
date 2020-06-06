@@ -36,5 +36,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "report"
+    name: "report",
+    description: "Rapporteer een gebruiker",
+    category: "Staff"
 }

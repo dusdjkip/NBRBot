@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.run = async(bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("Hoho... Jij hebt hier geen permissie voor om dit commando te gebruiken!");
 
@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
 
     if (!args[1]) return message.reply("Geen redenen opgegeven.");
 
-    if(warnUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Jij mag geen ander teamlid kicken!");
+    if (warnUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Jij mag geen ander teamlid kicken!");
 
     var kickUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[2]));
 
@@ -85,11 +85,16 @@ async function promptMessage(message, author, time, reactions) {
 
     var filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
 
-    return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
+    return message.awaitReactions(filter, {
+        max: 1,
+        time: time
+    }).then(collected => collected.first() && collected.first().emoji.name);
 
 }
 
 
 module.exports.help = {
-    name: "kick"
+    name: "kick",
+    description: "Kick een gebruiker van de server",
+    category: "Staff"
 }

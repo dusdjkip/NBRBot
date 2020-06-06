@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 const fetch = require("node-fetch");
-const stripIndents  = require("common-tags");
+const stripIndents = require("common-tags");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -8,7 +8,9 @@ module.exports.run = async (bot, message, args) => {
 
     if (!name) {
         return message.reply("Misschien handig om naar een naam te zoeken :)")
-            .then(msg => msg.delete({ timeout: 5000 }));
+            .then(msg => msg.delete({
+                timeout: 5000
+            }));
     }
 
     const url = `https://instagram.com/${name}/?__a=1`;
@@ -17,7 +19,9 @@ module.exports.run = async (bot, message, args) => {
 
     if (!res.graphql.user.username) {
         return message.reply("Wij kunnen dat account niet vinden in onze database.")
-            .then(msg => msg.delete({ timeout: 5000 }));
+            .then(msg => msg.delete({
+                timeout: 5000
+            }));
     }
 
     const account = res.graphql.user;
@@ -43,5 +47,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "insta"
+    name: "insta",
+    description: "Tja.. Gewoon een super commando!",
+    category: "Handig"
 }

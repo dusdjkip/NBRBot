@@ -9,5 +9,7 @@ module.exports.run = (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "watkan"
+    name: "watkan",
+    description: "Wat kan diegene nou eigelijk?",
+    category: "Fun"
 }

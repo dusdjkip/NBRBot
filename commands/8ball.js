@@ -21,10 +21,12 @@ module.exports.run = async (bot, message, args) => {
         .setTimestamp();
 
     message.channel.send(ballembed);
-    
+
 
 }
 
 module.exports.help = {
-    name: "8ball"
+    name: "8ball",
+    description: "Gewoon een klassieker van NBR!",
+    category: "Fun"
 }

@@ -39,12 +39,14 @@ module.exports.run = async (bot, message, args) => {
         .setTimestamp();
 
     var channel = message.member.guild.channels.cache.find(channels => channels.name === options.kanaal);
-    if(!channel) return message.reply("Dit kanaal bestaat niet..")
+    if (!channel) return message.reply("Dit kanaal bestaat niet..")
 
     channel.send(meldingEmbed);
 
 }
 
 module.exports.help = {
-    name: "melding"
+    name: "melding",
+    description: "Maak een mededeling.",
+    category: "Staff"
 }

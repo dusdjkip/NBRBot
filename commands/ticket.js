@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.run = async(bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
 
     const categoryID = "717094952512782406";
@@ -12,17 +12,17 @@ module.exports.run = async(bot, message, args) => {
 
     message.guild.channels.cache.forEach(channel => {
 
-        if(channel.name == userName.toLowerCase() + "-" + userDiscriminator){
+        if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
             ticketBestaat = true;
 
             message.channel.send("Oei! Je hebt al een ticket!")
 
             return;
         }
-        
+
     });
 
-    if(ticketBestaat) return;
+    if (ticketBestaat) return;
 
     var embed = new discord.MessageEmbed()
         .setTitle("Hey " + message.author.username)
@@ -30,7 +30,9 @@ module.exports.run = async(bot, message, args) => {
 
     message.channel.send(embed);
 
-    message.guild.channels.create(userName.toLowerCase() + "-" + userDiscriminator, {type: 'text'}).then(
+    message.guild.channels.create(userName.toLowerCase() + "-" + userDiscriminator, {
+        type: 'text'
+    }).then(
         (createdChannel) => {
             createdChannel.setParent(categoryID).then(
                 (settedParent) => {
@@ -70,5 +72,7 @@ module.exports.run = async(bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "ticket"
+    name: "ticket",
+    description: "Maak een support ticket aan!",
+    category: "Algemeen"
 }

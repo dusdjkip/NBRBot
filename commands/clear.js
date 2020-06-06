@@ -13,11 +13,17 @@ module.exports.run = async (bot, message, args) => {
         message.channel.bulkDelete(amount).then(() => {
 
             if (args[0] == 0) {
-                message.channel.send("Ik kan toch geen 0 berichten verwijderen?").then(msg => msg.delete({ timeout: 3000 }));
+                message.channel.send("Ik kan toch geen 0 berichten verwijderen?").then(msg => msg.delete({
+                    timeout: 3000
+                }));
             } else if (args[0] == 1) {
-                message.channel.send("Ik heb 1 bericht voor je verwijderd.").then(msg => msg.delete({ timeout: 3000 }));
+                message.channel.send("Ik heb 1 bericht voor je verwijderd.").then(msg => msg.delete({
+                    timeout: 3000
+                }));
             } else {
-                message.channel.send(`Ik heb ${args[0]} berichten voor je verwijderd.`).then(msg => msg.delete({ timeout: 3000 }));
+                message.channel.send(`Ik heb ${args[0]} berichten voor je verwijderd.`).then(msg => msg.delete({
+                    timeout: 3000
+                }));
             }
 
         })
@@ -29,5 +35,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "clear"
+    name: "clear",
+    description: "Wis berichten van de chat.",
+    category: "Staff"
 }

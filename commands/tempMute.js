@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 const ms = require("ms");
 
-module.exports.run = async(bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("Sorry jij hebt hier geen recht op.");
 
@@ -17,20 +17,20 @@ module.exports.run = async(bot, message, args) => {
 
     var muteRole = message.guild.roles.cache.get('711534589549477960');
 
-    if(!muteRole) return message.channel.send("De role muted bestaat niet.");
+    if (!muteRole) return message.channel.send("De role muted bestaat niet.");
 
     var muteTime = args[1];
 
     if (!muteTime) message.channel.send("Gebruik het commando zo: !tempmute <@Gebruiker> <s, m, h> (Secondes, minuten, Uren)");
 
-    await(mutePerson.roles.add(muteRole.id));
+    await (mutePerson.roles.add(muteRole.id));
     message.channel.send(`${mutePerson} is gemuted voor ${muteTime}!`);
 
     setTimeout(() => {
 
         mutePerson.roles.remove(muteRole.id);
         message.channel.send(`${mutePerson} is geunmuted!`);
-        
+
     }, ms(muteTime));
 
 
@@ -38,5 +38,7 @@ module.exports.run = async(bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "tempmute"
+    name: "tempmute",
+    description: "Mute een gebruiker",
+    category: "Staff"
 }

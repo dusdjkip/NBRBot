@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.run = async(bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
 
     message.channel.send("🍺Hiero, Een biertje voor jou!🍻");
@@ -8,5 +8,7 @@ module.exports.run = async(bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "bier"
+    name: "bier",
+    description: "Krijg een lekker koud biertje!",
+    category: "Fun"
 }

@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 
     var options = {
 
-        titel: argsList[0] || "Geen titel meegegeven", 
+        titel: argsList[0] || "Geen titel meegegeven",
         bericht: argsList[1] || "Geen update meegegeven",
         kleur: argsList[2].trim(),
         kanaal: argsList[3].trim()
@@ -40,12 +40,14 @@ module.exports.run = async (bot, message, args) => {
 
     let announceChannel = message.mentions.channels.first();
 
-    if(!announceChannel) return message.reply("Dit kanaal bestaat niet..")
-    
+    if (!announceChannel) return message.reply("Dit kanaal bestaat niet..")
+
     announceChannel.send(updateEmbed);
 
 }
 
 module.exports.help = {
-    name: "update"
+    name: "update",
+    description: "Breng een update uit!",
+    category: "Staff"
 }
